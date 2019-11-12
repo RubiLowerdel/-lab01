@@ -1,0 +1,8 @@
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\bin\Debug\netstandard2.0\ZooAdmin.Domain.deps.json
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\bin\Debug\netstandard2.0\ZooAdmin.Domain.dll
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\bin\Debug\netstandard2.0\ZooAdmin.Domain.pdb
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\obj\Debug\netstandard2.0\ZooAdmin.Domain.csprojAssemblyReference.cache
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\obj\Debug\netstandard2.0\ZooAdmin.Domain.AssemblyInfoInputs.cache
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\obj\Debug\netstandard2.0\ZooAdmin.Domain.AssemblyInfo.cs
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\obj\Debug\netstandard2.0\ZooAdmin.Domain.dll
+C:\Users\valya\Desktop\ООП\Zoo\ZooAdmin\ZooAdmin.Domain\obj\Debug\netstandard2.0\ZooAdmin.Domain.pdb
