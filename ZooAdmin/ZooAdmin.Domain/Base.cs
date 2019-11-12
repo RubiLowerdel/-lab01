@@ -9,18 +9,18 @@ namespace ZooAdmin.Domain
         {
             public static Dictionary<Guid, Aviary> Aviaries = new Dictionary<Guid, Aviary>();
             public static Dictionary<Guid, Animal> Animals = new Dictionary<Guid, Animal>();
-            public static Dictionary<Guid, Food> Foods = new Dictionary<Guid, Food>();
+            public static List<Food> Foods = new List <Food>();
             
             public static Dictionary<Guid, Ration> Rations = new Dictionary<Guid, Ration>();
-            public string Name { get; }
+            public string Name { get; private set;  }
 
             public Guid Id { get; private set; }
 
 
 
-            public Base(string name)
+            public Base(Guid identificator, string name)
             {
-                Id = Guid.NewGuid();
+                Id = identificator;
                 Name = name;
             if (String.IsNullOrEmpty(name) )
             {

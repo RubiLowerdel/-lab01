@@ -31,7 +31,7 @@ namespace ZooAdmin
 
 
             Food meat = new Food("М'ясо", 39, ListOfAnimals.Jaguars);
-            Base.Foods.Add(meat.Id, meat);
+            Base.Foods.Add(meat);
 
 
             Ration forTigers = new Ration(meat, ListOfAnimals.Tigers);
@@ -41,7 +41,8 @@ namespace ZooAdmin
 
 
             //І'мя, cкільки років, який вольєр, який тип тварин, коли їсть вранці, коли їсть вечером, тип живлення, що саме, чи голодна
-            Animal animalZebra = new Animal("Майя",
+            Animal animalZebra = new Animal(Guid.NewGuid(),
+                                            "Майя",
                                             new DateTimeOffset(2000, 11, 4, 11, 02, 55, new TimeSpan(hourUtc, minuteUtc, 0)),
                                             (int)((time - new DateTimeOffset(2000, 11, 4, 11, 02, 55, new TimeSpan(hourUtc, minuteUtc, 0))).TotalDays / 365),
                                             TypeOfAnimals.Mammals,
@@ -49,7 +50,8 @@ namespace ZooAdmin
                                             ListOfAnimals.Tigers);
             Base.Animals.Add(animalZebra.Id, animalZebra);
 
-            Animal animalSinica = new Animal("Рябуха",
+            Animal animalSinica = new Animal(Guid.NewGuid(),
+                                            "Рябуха",
                                              new DateTimeOffset(2010, 11, 4, 11, 02, 55, new TimeSpan(hourUtc, minuteUtc, 0)),
                                              (int)((time - new DateTimeOffset(2010, 11, 4, 11, 02, 55, new TimeSpan(hourUtc, minuteUtc, 0))).TotalDays / 365),
                                              TypeOfAnimals.Mammals,
@@ -58,7 +60,8 @@ namespace ZooAdmin
                                              );
             Base.Animals.Add(animalSinica.Id, animalSinica);
 
-            Animal animalDog = new Animal("Жук",
+            Animal animalDog = new Animal(Guid.NewGuid(),
+                                          "Жук",
                                           new DateTimeOffset(2005, 11, 4, 11, 02, 55, new TimeSpan(hourUtc, minuteUtc, 0)),
                                           (int)((time - new DateTimeOffset(2005, 11, 4, 11, 02, 55, new TimeSpan(hourUtc, minuteUtc, 0))).TotalDays / 356),
                                           TypeOfAnimals.Mammals,
@@ -327,7 +330,7 @@ namespace ZooAdmin
                                                 weight = 3;
                                                 ration.Weight(weight);
                                                 int coef = ration.Coefficient;
-                                                coef = 2;
+                                                coef = 1;
                                                 ration.Coef(coef);
                                                 DateTimeOffset time1 = new DateTimeOffset(time.Year, time.Month, time.Day, 7, 0, 00, new TimeSpan(2, 0, 0));
                                                 DateTimeOffset time2 = new DateTimeOffset(time.Year, time.Month, time.Day, 17, 0, 00, new TimeSpan(2, 0, 0));
@@ -362,7 +365,7 @@ namespace ZooAdmin
                                                 ration.Coef(coef);
                                                 DateTimeOffset time1 = new DateTimeOffset(time.Year, time.Month, time.Day, 7, 0, 00, new TimeSpan(2, 0, 0));
 
-                                                DateTimeOffset time3 = new DateTimeOffset(time.Year, time.Month, time.Day, 11, 0, 00, new TimeSpan(2, 0, 0));
+                                                DateTimeOffset time3 = new DateTimeOffset(time.Year, time.Month, time.Day, 22, 0, 00, new TimeSpan(2, 0, 0));
                                                 ration.Eating.Add(time1);
 
                                                 ration.Eating.Add(time3);
@@ -767,9 +770,9 @@ namespace ZooAdmin
                     {
                         Console.WriteLine("Ваші запаси їжї");
 
-                        foreach (KeyValuePair<Guid, Food> food in Base.Foods)
+                        foreach (Food food in Base.Foods)
                         {
-                            Console.WriteLine(food.Value.NameOfFood + " " + food.Value.Weight);
+                            Console.WriteLine(food.Name + " " + food.Weight);
                         }
                     }
 
@@ -791,15 +794,15 @@ namespace ZooAdmin
                                     HungryAnimal.Remove(animal);
                                     animal.ChangeHungry(k);
 
-                                    foreach (KeyValuePair<Guid, Food> food in Base.Foods)
+                                    foreach (Food food in Base.Foods)
                                     {
                                         foreach (KeyValuePair<Guid, Ration> rat in Base.Rations)
                                         {
-                                            if (food.Value.ListAnimals == rat.Value.ListAnimals)
+                                            if (food.ListAnimals == rat.Value.ListAnimals)
                                             {
-                                                int weight = food.Value.Weight;
+                                                int weight = food.Weight;
                                                 weight -= rat.Value.WeightPortion;
-                                                food.Value.ChangeWeight(weight);
+                                                food.ChangeWeight(weight);
                                             }
                                         }
                                     }

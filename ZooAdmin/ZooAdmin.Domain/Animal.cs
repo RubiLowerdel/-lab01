@@ -18,7 +18,7 @@ namespace ZooAdmin.Domain
 
         public int Age { get; private set; }
 
-        public new Guid Id { get; private set; }
+        
 
         public ListOfAnimals ListAnimals { get; private set; }
 
@@ -33,7 +33,7 @@ namespace ZooAdmin.Domain
 
 
 
-        public Animal(string name, DateTimeOffset yearOfBirth, int age, TypeOfAnimals typeOfAnimals, TypeOfAnimalsOnTutrion typeOfAnimalsOnTutrion, ListOfAnimals aviaryFor) : base(name)
+        public Animal(Guid id, string name, DateTimeOffset yearOfBirth, int age, TypeOfAnimals typeOfAnimals, TypeOfAnimalsOnTutrion typeOfAnimalsOnTutrion, ListOfAnimals aviaryFor) : base(id, name)
         {
 
 
@@ -44,7 +44,7 @@ namespace ZooAdmin.Domain
 
             TypeOfAnimalsOnTutrion = typeOfAnimalsOnTutrion;
 
-            Id = Guid.NewGuid();
+           
 
 
             if (String.IsNullOrEmpty(name) || yearOfBirth == null)
